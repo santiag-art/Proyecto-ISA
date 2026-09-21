@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ISA Energía | Inicio</title>
+  <meta name="description" content="ISA Energía: conectamos el país con energía confiable y sostenible. Explora la red en operación, la historia de ISA y calcula tu consumo." />
+  <meta name="theme-color" content="#0A2E6B" />
+  <meta property="og:title" content="ISA Energía | Inicio" />
+  <meta property="og:description" content="Mapa de la red en operación, historia de ISA y calculadora de consumo. Proyecto académico." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+
+  <!-- Evita el "parpadeo" de tema: aplica claro/oscuro antes de pintar la página -->
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem("isa-theme"); } catch (e) {}
+      var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (dark) document.documentElement.classList.add("dark");
+    })();
+  </script>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind.config.js"></script>
+
+  <!-- Íconos (versión 0.x fija para que una actualización mayor no rompa el sitio) -->
+  <script src="https://unpkg.com/lucide@0/dist/umd/lucide.min.js" defer></script>
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="min-h-screen bg-brand-bg dark:bg-slate-900 font-body text-brand-ink dark:text-slate-100 antialiased transition-colors duration-300">
+
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+  <noscript>
+    <p style="padding:1rem;text-align:center;background:#fff3cd;color:#664d03">
+      Este sitio necesita JavaScript para mostrar su contenido.
+    </p>
+  </noscript>
+
+  <!-- ======= VISTA: Navegación ======= -->
+  <header id="nav-root"></header>
+
+  <main id="contenido">
+    <!-- Hero / campaña -->
+    <section id="inicio" aria-label="Campaña principal"><div id="hero-root"></div></section>
+
+    <!-- Cifras de operación -->
+    <section id="cifras" aria-label="Cifras de la compañía"><div id="stats-root"></div></section>
+
+    <!-- Mapa de la red -->
+    <section id="red" aria-label="Red en operación" class="bg-brand-deep text-white"><div id="map-root"></div></section>
+
+    <!-- Cómo llega la energía -->
+    <section id="energia" aria-label="Cómo llega la energía a tu hogar" class="bg-white dark:bg-slate-900"><div id="energy-root"></div></section>
+
+    <!-- Historia -->
+    <section id="historia" aria-label="Nuestra historia" class="bg-brand-bg dark:bg-slate-950"><div id="history-root"></div></section>
+
+    <!-- Calculadora de consumo -->
+    <section id="calculadora" aria-label="Calculadora de consumo" class="bg-white dark:bg-slate-900"><div id="calc-root"></div></section>
+
+    <!-- Noticias -->
+    <section id="noticias" aria-label="Sala de prensa" class="bg-brand-bg dark:bg-slate-950"><div id="news-root"></div></section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer id="footer-root"></footer>
+
+  <!-- Modal de artículo (rellenado por la vista de noticias) -->
+  <div id="article-modal" class="fixed inset-0 z-50 hidden"></div>
+
+  <!-- Botón volver arriba -->
+  <button id="back-to-top" type="button" aria-label="Volver arriba" tabindex="-1"
+    class="fixed bottom-6 right-6 z-40 grid h-11 w-11 place-items-center rounded-full bg-brand-navy text-white shadow-lg opacity-0 pointer-events-none translate-y-3 transition-all duration-300 hover:bg-brand-blue">
+    <i data-lucide="arrow-up" class="h-5 w-5"></i>
+  </button>
+
+  <!-- ======= MODELOS ======= -->
+  <script src="assets/js/models/themeModel.js"></script>
+  <script src="assets/js/models/navModel.js"></script>
+  <script src="assets/js/models/heroModel.js"></script>
+  <script src="assets/js/models/statsModel.js"></script>
+  <script src="assets/js/models/socialModel.js"></script>
+  <script src="assets/js/models/networkModel.js"></script>
+  <script src="assets/js/models/energyPathModel.js"></script>
+  <script src="assets/js/models/timelineModel.js"></script>
+  <script src="assets/js/models/calculatorModel.js"></script>
+  <script src="assets/js/models/articlesModel.js"></script>
+  <script src="assets/js/models/newsletterModel.js"></script>
+  <script src="assets/js/models/sessionModel.js"></script>
+  <script src="assets/js/models/estimateModel.js"></script>
+
+  <!-- ======= UTILIDADES ======= -->
+  <script src="assets/js/utils/dom.js"></script>
+  <script src="assets/js/utils/format.js"></script>
+  <script src="assets/js/utils/countUp.js"></script>
+
+  <!-- ======= VISTAS ======= -->
+  <script src="assets/js/views/navView.js"></script>
+  <script src="assets/js/views/heroView.js"></script>
+  <script src="assets/js/views/statsView.js"></script>
+  <script src="assets/js/views/networkMapView.js"></script>
+  <script src="assets/js/views/energyPathView.js"></script>
+  <script src="assets/js/views/timelineView.js"></script>
+  <script src="assets/js/views/calculatorView.js"></script>
+  <script src="assets/js/views/newsView.js"></script>
+  <script src="assets/js/views/footerView.js"></script>
+  <script src="assets/js/views/toastView.js"></script>
+
+  <!-- ======= CONTROLADORES ======= -->
+  <script src="assets/js/controllers/themeController.js"></script>
+  <script src="assets/js/controllers/navController.js"></script>
+  <script src="assets/js/controllers/mapController.js"></script>
+  <script src="assets/js/controllers/energyController.js"></script>
+  <script src="assets/js/controllers/calculatorController.js"></script>
+  <script src="assets/js/controllers/newsController.js"></script>
+  <script src="assets/js/controllers/homeController.js"></script>
+
+  <!-- ======= Punto de entrada ======= -->
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

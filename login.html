@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ISA Energía | Iniciar sesión</title>
+  <meta name="description" content="Inicia sesión en el portal de clientes de ISA Energía (proyecto académico)." />
+  <meta name="theme-color" content="#0A2E6B" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem("isa-theme"); } catch (e) {}
+      var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (dark) document.documentElement.classList.add("dark");
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind.config.js"></script>
+  <script src="https://unpkg.com/lucide@0/dist/umd/lucide.min.js" defer></script>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="min-h-screen bg-brand-bg dark:bg-slate-900 font-body text-brand-ink dark:text-slate-100 antialiased transition-colors duration-300">
+
+  <a href="#login-root" class="skip-link">Saltar al formulario</a>
+
+  <!-- Botón de tema -->
+  <button id="theme-toggle" type="button" aria-label="Cambiar entre tema claro y oscuro"
+    class="fixed top-4 right-4 z-40 grid h-10 w-10 place-items-center rounded-full bg-white dark:bg-slate-800 text-brand-navy dark:text-white shadow-card">
+    <i data-lucide="moon" class="h-[18px] w-[18px] dark:hidden"></i>
+    <i data-lucide="sun" class="h-[18px] w-[18px] hidden dark:block"></i>
+  </button>
+
+  <main class="min-h-screen grid place-items-center px-4 py-10">
+    <div id="login-root" class="w-full flex justify-center"></div>
+  </main>
+
+  <noscript><p style="padding:1rem;text-align:center">Este sitio necesita JavaScript.</p></noscript>
+
+  <!-- MODELOS -->
+  <script src="assets/js/models/themeModel.js"></script>
+  <script src="assets/js/models/authModel.js"></script>
+  <script src="assets/js/models/sessionModel.js"></script>
+  <script src="assets/js/models/estimateModel.js"></script>
+  <!-- UTILIDADES -->
+  <script src="assets/js/utils/dom.js"></script>
+  <script src="assets/js/utils/format.js"></script>
+  <!-- VISTAS -->
+  <script src="assets/js/views/loginView.js"></script>
+  <script src="assets/js/views/toastView.js"></script>
+  <!-- CONTROLADORES -->
+  <script src="assets/js/controllers/themeController.js"></script>
+  <script src="assets/js/controllers/loginController.js"></script>
+  <!-- Punto de entrada -->
+  <script src="assets/js/appLogin.js"></script>
+</body>
+</html>
